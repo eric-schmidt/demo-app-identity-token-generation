@@ -1,0 +1,14 @@
+{
+  "name": "App Identity Token Generation Demo",
+  "version": "1.0.0",
+  "description": "Demonstrates how to obtain a Contentful CMA token via App Identity, which is then used to retrieve a list of entries from Contentful.",
+  "author": "Eric Schmidt",
+  "main": "src/getEntries.js",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@contentful/node-apps-toolkit": "^2.1.0",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.1"
+  }
+}
