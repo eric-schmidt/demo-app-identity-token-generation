@@ -27,7 +27,7 @@ dotenv.config();
   const entries = await plainClient.entry.getMany({
     query: {
       skip: 0,
-      limit: 100,
+      limit: 5,
     },
   });
 
