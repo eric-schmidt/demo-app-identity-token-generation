@@ -16,11 +16,11 @@ Note that this token can only be used for the following Contentful entities:
 ContentType, EditorInterface, Entry, Asset, Locale, Tag, Task, and Snapshot. `src/getEntries`
 coule easily be extended to test out any operations on the aforementioned entities as well.
 
-Note: You must use the CMA Plain API in order to make calls using this generated token.
+**Note: You must use the CMA Plain API in order to make calls using this generated token.
 This is because the standard client library makes some assumptions about being able
 to access Spaces or Environments directly before querying, whereas the Plain API
 allows you to pass in some defaults first.
-@see: https://contentful.github.io/contentful-management.js/contentful-management/10.35.3/#alternative-plain-api
+See the [CMA Plain API docs](https://contentful.github.io/contentful-management.js/contentful-management/10.35.3/#alternative-plain-api).**
 
 ## Instructions
 
