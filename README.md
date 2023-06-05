@@ -28,5 +28,5 @@ allows you to pass in some defaults first.
 2. Install the app to whatever spaces/environments you would like to interact with.
 3. Run `npm install` in this repo.
 4. Place the private key generated in step 1 in `./keys/key.pem`.
-5. Copy `.env.example`, renaming to `.env` and update the `CONTENTFUL_SPACE_ID`, `CONTENTFUL_ENVIRONMENT_ID`, and `CONTENTFUL_APP_DEFINITION_ID` variables (the app definition ID can be found on your app's config page in the web app).
+5. Copy `.env.example`, rename to `.env`, and update the `CONTENTFUL_SPACE_ID`, `CONTENTFUL_ENVIRONMENT_ID`, and `CONTENTFUL_APP_DEFINITION_ID` variables (the app definition ID can be found on your app's config page in the web app).
 6. In your console run `node src/getEntries.js`, and you should see the rough output of 10 entries with no errors. You can also run `src/getAppAccessToken.js` directly to ensure it is working (uncomment line 18 to see a printout of the generated token).
