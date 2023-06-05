@@ -1,0 +1,1 @@
+Following [these instructions](https://www.contentful.com/developers/docs/extensibility/app-framework/app-identities-and-events/#creating-your-app-keys), place your generated private key here and name it `key.pem`.
