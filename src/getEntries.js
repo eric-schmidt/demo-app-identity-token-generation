@@ -31,8 +31,6 @@ dotenv.config();
     },
   });
 
-  // Log out list of entry titles to demo that App Identity token is working properly.
-  entries.items.forEach((entry) => {
-    console.log(entry.fields.title["en-US"]);
-  });
+  // Log out the entries to demonstrate that appAccessToken is working.
+  console.log(entries);
 })();
