@@ -1,30 +1,38 @@
 import dotenv from "dotenv";
 import { appAccessToken } from "./getAppAccessToken.js";
-import fetch from "node-fetch";
+import contentful from "contentful-management";
 
 // Init dotenv.
 dotenv.config();
 
 (async () => {
-  // Use direct CMA calls to get data back from Contentful using newly acquired token.
-  // Note that this token can only be used for the following Contentful entities:
-  // ContentType, EditorInterface, Entry, Asset, Locale, Tag, Task, and Snapshot.
-  //
-  // Additionally, as App Identity tokens are scoped differently than personal access tokens
-  // (e.g you cannot access Spaces or Environment directly), you will not be able to use
-  // client libraries to make these calls, since they typically require getSpace or
-  // getEnvironment to be called before you can return any data or perform any operations.
-  const entries = await fetch(
-    `https://api.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT_ID}/entries`,
+  // You must use the CMA Plain API in order to make calls using this generated token.
+  // This is because the standard client library makes some assumptions about being able
+  // to access Spaces or Environments directly before querying, whereas the Plain API
+  // allows you to pass in some defaults first.
+  // @see: https://contentful.github.io/contentful-management.js/contentful-management/10.35.3/#alternative-plain-api
+  const plainClient = await contentful.createClient(
     {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${appAccessToken}`,
-        "Content-Type": "application/json",
+      accessToken: appAccessToken,
+    },
+    {
+      type: "plain",
+      defaults: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        environmentId: process.env.CONTENTFUL_ENVIRONMENT_ID,
       },
     }
-  ).then((res) => res.json());
+  );
 
-  // Log out list of entries to prove that App Identity token is working properly.
-  console.log(entries);
+  const entries = await plainClient.entry.getMany({
+    query: {
+      skip: 0,
+      limit: 100,
+    },
+  });
+
+  // Log out list of entry titles to demo that App Identity token is working properly.
+  entries.items.forEach((entry) => {
+    console.log(entry.fields.title["en-US"]);
+  });
 })();
