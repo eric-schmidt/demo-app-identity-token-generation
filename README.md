@@ -28,6 +28,7 @@ See the [CMA Plain API docs](https://contentful.github.io/contentful-management.
 2. Create a Contentful app, along with a public/private key pair, following [these instructions](https://www.contentful.com/developers/docs/extensibility/app-framework/app-identities-and-events/#creating-your-app-keys).
 3. Place the private key generated in step 2 in `./keys/key.pem`.
 4. Install the app for the space/environment for which you imported the content model above.
-5. Run `npm install` in this repo.
-6. Copy `.env.example`, rename to `.env`, and update the `CONTENTFUL_SPACE_ID`, `CONTENTFUL_ENVIRONMENT_ID`, and `CONTENTFUL_APP_DEFINITION_ID` variables (the app definition ID can be found on your app's config page in the web app).
-7. In your console run `node src/createEntries.js`, and you should see the terminal output for 5 entries being created with no errors.
+5. Ensure you're running the correct version of node by running `nvm use` in this demo's root folder.
+6. Run `npm install` in this demo's root folder.
+7. Copy `.env.example`, rename to `.env`, and update the `CONTENTFUL_SPACE_ID`, `CONTENTFUL_ENVIRONMENT_ID`, and add values for `CONTENTFUL_APP_DEFINITION_ID` (the app definition ID can be found on your app's config page in the web app).
+8. In your console run `node src/createEntries.js`, and you should see the terminal output for 5 entries being created with no errors.
