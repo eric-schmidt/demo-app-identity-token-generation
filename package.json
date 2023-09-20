@@ -8,6 +8,7 @@
   "type": "module",
   "dependencies": {
     "@contentful/node-apps-toolkit": "^2.1.0",
+    "chalk": "^5.3.0",
     "contentful-management": "^10.35.6",
     "dotenv": "^16.0.3"
   }
